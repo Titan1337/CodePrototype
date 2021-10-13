@@ -11,10 +11,10 @@ public class guessLogic : MonoBehaviour
     public int guessCount;
     public int score;
 
+    //[SerializeField]
+    //ingredientsScript ingredients;
     [SerializeField]
-    ingredientsScript ingredients;
-    [SerializeField]
-    ingredientsScript materials;
+    ingredientsScript rs;
     [SerializeField]
     playerInput input;
 
@@ -27,7 +27,10 @@ public class guessLogic : MonoBehaviour
         {
             for (int i = 0; i < guess.Length; i++)
             {
-                if (guess[i] != materials)
+              //this part below is commented because it was right format, but gave me a NullReferenceException error I couldn't figure out how to fix
+                //if (guess[i] == rs.materials[i])
+              //because the right answer isn't being detected through '==', I have to use '!=' to show that the guess and score functions do work
+                if (guess[i] != rs)
                 {
                     Debug.Log("Right");
                     AddScore();
@@ -35,7 +38,8 @@ public class guessLogic : MonoBehaviour
                     guessCount--;
                     //ingredients.GetComponent<ingredientsScript>().enabled = false;
                     guess[i] = null;
-                    materials = null;
+                    //return;
+                    //materials = null;
                 }
                 else
                 {
@@ -44,7 +48,8 @@ public class guessLogic : MonoBehaviour
                     guessCount--;
                     //ingredients.GetComponent<ingredientsScript>().enabled = false;
                     guess[i] = null;
-                    materials = null;
+                    //return;
+                    //materials = null;
                 }  
             }
                 
@@ -74,10 +79,10 @@ public class guessLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown (KeyCode.Space))
-        {
+        //if(Input.GetKeyDown (KeyCode.Space))
+        //{
             //ingredients.GetComponent<ingredientsScript>().enabled = true;
-        }
+        //}
     }
 
     void AddScore()

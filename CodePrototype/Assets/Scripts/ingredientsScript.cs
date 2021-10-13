@@ -6,8 +6,8 @@ public class ingredientsScript : MonoBehaviour
 {
     [SerializeField]
     GameObject[] ingredients;
-    [SerializeField]
-    Material[] materials;
+    
+    public Material[] materials;
     
 
 
